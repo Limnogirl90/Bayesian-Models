@@ -92,3 +92,38 @@ g(β,x)=β xβ1xβ2 ...xβn
 g.power = function(x1,x2,beta0,beta1,beta2){
 log(beta0) + beta1*log(x1) + beta2*log(x2)
 }
+x1=matrix(seq(-10,10,length.out=100),100,100)
+x2=t(x1)
+beta0 = 1
+beta1 = .7
+beta2 = -1.4
+image(x1[,1],x2[1,],g.power(x1,x2,beta0,beta1,beta2),xlab='x1',ylab='x2')
+contour(x1[,1],x2[1,],g.power(x1,x2,beta0,beta1,beta2),add=T)
+
+## Equation 2.2.15
+g(vmax,α,c,x)= vmax(x+c)/vmax/a +(x+c)
+g.asymptotic =function(vmax,a,x,c){
+(vmax*(x+c)/((vmax/a)+(x+c)))
+}
+x1=matrix(seq(-10,10,length.out=100),100,100)
+x2=t(x1)
+vmax = 1
+a = .7
+x = -1.4
+c = 3
+image(x1[,1],x2[1,],g.asymptotic(vmax,a,c,x),xlab='x1',ylab='x2')
+contour(x1[,1],x2[1,],g.asymptotic(vmax,a,c,x),add=T)
+
+##Equation 2.2.16
+g.Hill = function(vmax,k,q,x){
+(vmax*x^q)/(k^q+x^q)
+}
+x1=matrix(seq(-10,10,length.out=100),100,100)
+x2=t(x1)
+vmax = 1
+k = .7
+x = -1.4
+q = 3
+image(x1[,1],x2[1,],g.Hill(vmax,k,q,x),xlab='x1',ylab='x2')
+contour(x1[,1],x2[1,],g.Hill(vmax,k,q,x),add=T)
+
