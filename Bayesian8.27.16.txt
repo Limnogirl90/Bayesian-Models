@@ -1,6 +1,6 @@
-# author: Alex Perkins
-# email: taperkins@nd.edu
-# date: 2016-08-26
+# author: Katherine Barrett
+# email: kbailey9@nd.edu
+# date: 2016-08-27
 # 
 
 # This script is intended to serve as a small example for students in
