@@ -4,11 +4,8 @@
 # 
 
 # This script is intended to serve as a small example for students in
-
 # the Bayesian Analysis for Ecologists and Epidemiologists course who
-
 # are being asked to plot functions from Chapter 2 of Hooten and Hobbs
-
 # as a pre-class assignment for Tuesday, August 30.
 
 
@@ -16,7 +13,6 @@
 
 ###
 ### plot a linear function
-
 ###
 
 # define a linear function
@@ -24,35 +20,21 @@ g.linear = function(x1,x2,beta0,beta1,beta2){
   beta0 + beta1 * x1 + beta2 * x2
 }
 
-
 # define the domain for the linear function
 x1 = matrix(seq(-10,10,length.out=100),100,100)
-
 x2 = t(x1)
 
-
 # define the parameters for the linear function 
-
 beta0 = 1
-
 beta1 = .7
-
 beta2 = -1.4
 
-
 # plot the function evaluated at these parameter values
-
 image(x1[,1],x2[1,],g.linear(x1,x2,beta0,beta1,beta2),xlab='x1',ylab='x2')
-
 contour(x1[,1],x2[1,],g.linear(x1,x2,beta0,beta1,beta2),add=T)
-
-
-
-
 
 ###
 ### plot your next function here...
-
 ###
 ###equation 2.2.3
 g(beta,x) = exp(beta0 +beta1x1 +...+betanxn)
@@ -60,56 +42,34 @@ g.exponential = function(x1,x2,beta0,beta1,beta2){
   exp(beta0) + exp(beta1 * x1) + exp(beta2 * x2)
 }
 
-
 # define the domain for the linear function
 x1 = matrix(seq(-10,10,length.out=100),100,100)
 x2 = t(x1)
 
-
 # define the parameters for the linear function
-
 beta0 = 1
-
 beta1 = .7
-
 beta2 = -1.4
 
-
 # plot the function evaluated at these parameter values
-
 image(x1[,1],x2[1,],g.linear(x1,x2,beta0,beta1,beta2),xlab='x1',ylab='x2')
-
 contour(x1[,1],x2[1,],g.linear(x1,x2,beta0,beta1,beta2),add=T)
 
-
-
 ### equation 2.2.5
-
 # define a linear function
-
 g.inverse.logit = function(x1,x2,beta0,beta1,beta2){
   exp(beta0) + exp(beta1 * x1) + exp(beta2 * x2)/1+exp(beta0)+
 }
 
-
 # define the domain for the linear function
-
 x1 = matrix(seq(-10,10,length.out=100),100,100)
-
 x2 = t(x1)
 
-
 # define the parameters for the linear function
-
 beta0 = 1
-
 beta1 = .7
-
 beta2 = -1.4
 
-
 # plot the function evaluated at these parameter values
-
 image(x1[,1],x2[1,],g.linear(x1,x2,beta0,beta1,beta2),xlab='x1',ylab='x2')
-
 contour(x1[,1],x2[1,],g.linear(x1,x2,beta0,beta1,beta2),add=T)
