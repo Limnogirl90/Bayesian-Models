@@ -1,0 +1,11 @@
+Git commands
+
+git add -A #staging all of the changes
+git commit #put message in, make a commit out of the changes
+git push
+git pull
+git add -p #selectively adding changes
+? #what do all these options do
+git init #thing you do first before creating repository
+#staging is how git works, you take files, commit snapshots of the files, checkout (just a single copy of files without the history)
+head has just a line of commits you have done from the very first one
