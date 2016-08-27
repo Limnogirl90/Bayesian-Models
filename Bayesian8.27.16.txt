@@ -52,13 +52,13 @@ beta1 = .7
 beta2 = -1.4
 
 # plot the function evaluated at these parameter values
-image(x1[,1],x2[1,],g.linear(x1,x2,beta0,beta1,beta2),xlab='x1',ylab='x2')
-contour(x1[,1],x2[1,],g.linear(x1,x2,beta0,beta1,beta2),add=T)
+image(x1[,1],x2[1,],g.exponential(x1,x2,beta0,beta1,beta2),xlab='x1',ylab='x2')
+contour(x1[,1],x2[1,],g.exponential(x1,x2,beta0,beta1,beta2),add=T)
 
 ### equation 2.2.5
 # define a linear function
-g.inverse.logit = function(x1,x2,beta0,beta1,beta2){
-  exp(beta0) + exp(beta1 * x1) + exp(beta2 * x2)/1+exp(beta0)+
+g.inverselogit = function(x1,x2,beta0,beta1,beta2){
+ ( exp(beta0) + exp(beta1 * x1) + exp(beta2 * x2))/((1+exp(beta0))+(1+exp(beta1*x1))+(1+exp(beta2*x2))) 
 }
 
 # define the domain for the linear function
@@ -71,5 +71,24 @@ beta1 = .7
 beta2 = -1.4
 
 # plot the function evaluated at these parameter values
-image(x1[,1],x2[1,],g.linear(x1,x2,beta0,beta1,beta2),xlab='x1',ylab='x2')
-contour(x1[,1],x2[1,],g.linear(x1,x2,beta0,beta1,beta2),add=T)
+image(x1[,1],x2[1,],g.inverselogit(x1,x2,beta0,beta1,beta2),xlab='x1',ylab='x2')
+contour(x1[,1],x2[1,],g.inverselogit(x1,x2,beta0,beta1,beta2),add=T)
+
+##Equation 2.2.8
+g(β,a,x)= aexp(β0 +β1x1 +...+βnxn)/(1+exp(β0 +β1x1 +...+βnxn)
+g.logitlink = function(x1,x2,beta0,beta1,beta2,a=3){
+(a*exp(beta0) + a*exp(beta1 * x1) + a*exp(beta2 * x2))/((1+exp(beta0))+(1+exp(beta1*x1))+(1+exp(beta2*x2)))
+}
+x1=matrix(seq(-10,10,length.out=100),100,100)
+x2=t(x1)
+beta0 = 1
+beta1 = .7
+beta2 = -1.4
+image(x1[,1],x2[1,],g.logitlink(x1,x2,beta0,beta1,beta2),xlab='x1',ylab='x2')
+contour(x1[,1],x2[1,],g.logitlink(x1,x2,beta0,beta1,beta2),add=T)
+
+##Equation 2.2.11
+g(β,x)=β xβ1xβ2 ...xβn
+g.power = function(x1,x2,beta0,beta1,beta2){
+log(beta0) + beta1*log(x1) + beta2*log(x2)
+}
